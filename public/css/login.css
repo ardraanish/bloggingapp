@@ -1,0 +1,48 @@
+.login_page{
+    display: flex;
+    justify-content: center;
+}
+.container{
+    height: 100vh;
+    background-color: antiquewhite;
+}
+a{
+    text-decoration: none;
+}
+label{
+    color: darkmagenta;
+}
+h1{
+    font-size: 42px;
+    color: purple
+}
+.login_input{
+    display: flex;
+    flex-direction: column;
+}
+
+.login_area{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.login_button{
+   color: white;
+    margin-top: 20px;
+}
+button{
+    padding:10px 20px ;
+    background-color: mediumorchid;
+    border-radius: 5px;
+    border: none;
+}
+.deletePop{
+    position: absolute;
+    top: 350px;
+    left: 600px;
+    background-color: rgb(219, 147, 196);
+    display: none;
+    width: 600px;
+    padding: 20px;
+}
+

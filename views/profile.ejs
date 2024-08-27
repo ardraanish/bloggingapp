@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/profile.css">
+</head>
+<body>
+    <div class="container">
+        <div class="profile_page">
+        <header>
+            <div class="header">
+                <h1>user blogs</h1>
+                <div class="buttons">
+                    <button><a href="/logout">logout</a></button>
+                </div>
+             </div>
+        </header>
+        <hr>
+        <div class="profile_area">
+            <div class="blog">
+                <% if (locals.post) { %>
+                 <% post.forEach(e => { %>
+                    <li class="li">
+                        <a href="/editform/<%= e._id %>">
+                   <span class="title"><%= e.title %></span>
+                   <br>
+                   <span class="content"><%= e.content %></span>
+                   <!-- <div class="edit_dlt">
+                    <a href="/editform/<%= e._id %>"><button class="edit"  id="edit_btn">edit</button></a>
+                    <button class="dlt" id="delete_btn">delete</button>
+                   </div> -->
+                </a>
+                </li>
+                 <% }) %>
+                <% } %>
+            </div>
+        </div>
+        <div class="btn">
+
+           <button id="createBlog">create blog</button>
+        </div>
+    </div>
+    </div>
+
+    <div class="blog_form" id="blog_form">
+        <h2  id="heading">create blog</h2>
+        <form action="/profile" method="post" >
+            <input type="text" placeholder="title"  name="title" required>
+            <textarea type="text" placeholder="content"  name="content"required></textarea>
+        
+        <div class="formBtn">
+            <button id="cancel">cancel</button>
+            <button  type="submit" id="addBlog" class="add">add blog</button>
+            
+        </div>
+    </form>
+    </div>
+    
+<script src="/js/js.js"></script>
+</body>
+</html>

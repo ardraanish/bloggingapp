@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/profile.css">
+</head>
+<body>
+    <div class="container">
+        <div class="profile_page">
+        <header>
+            <div class="header">
+                <h1>user blogs</h1>
+                <div class="buttons">
+                    <button><a href="/login">logout</a></button>
+                </div>
+             </div>
+        </header>
+        <hr>
+        <div class="profile_area">
+            <div class="blog">
+                <% if (locals.post) { %>
+                 
+                    <li class="li">
+                       
+                   <span class="title"><%= post.title %></span>
+                   <span class="content"><%= post.content %></span>
+                   <div class="edit_dlt">
+                    <button class="edit" postid="<%= post._id %>" id="edit_btn">edit</button>
+                    <button class="dlt" onclick="deletePost('<%= post._id %>')" type="submit" id="delete_btn">delete</button>
+                   </div>
+                
+                </li>
+                 
+                <% } %>
+            </div>
+        </div>
+       
+    </div>
+    </div>
+    <div class="blog_form" id="blog_form">
+        <h2  id="heading">edit block</h2>
+        <form action="" method="" >
+            <input type="text" placeholder="title" id="title_id" value="<%= post.title %>"  name="title" required>
+            <textarea type="text" placeholder="content" id="content_id" name="content"required><%= post.content %></textarea>
+        
+        <div class="formBtn">
+            <button id="cancel">cancel</button>
+            <button type="submit" id="edit_form">edit</button>
+        </div>
+    </form>
+</div>
+
+<div class="deletePop" id="deletePop">
+  <div class="deleteForm">
+    <h2>Are you sure you want to delete this post</h2>
+  </div>
+  <div class="deletePostionBtn">
+    <button id="cancel">cancel</button>
+    <button id="deletePost" type="submit" >delete</button>
+  </div>
+</div>
+
+<script>
+    let blogform = document.getElementById("blog_form")
+    let edit_btn = document.getElementById("edit_btn")
+    let edit_form = document.getElementById("edit_form")
+    edit_btn.addEventListener("click",()=>{
+  blogform.style.display = "block"
+})
+
+// let edit_btn = document.getElementById("edit_btn")
+ async function editForm(editid){
+  console.log(editid);
+  
+  
+
+  let title= document.getElementById("title_id").value
+  let content= document.getElementById("content_id").value
+  try {
+    const datastore={title:title,content:content}
+    const response=await fetch(
+      `http://localhost:5000/admin/post/${editid}`,{
+        method:"PUT",
+        headers:{"Content-type":"application/json",
+
+        },
+        body:JSON.stringify(datastore)
+
+      }
+
+    )
+    if(response.ok)
+    {
+      window.location.href = `http://localhost:5000/admin/post/${editid}`
+    }
+  } catch (error) {
+    console.log("its an error",error)
+  }
+
+
+ }
+
+ document.addEventListener("DOMContentLoaded",function(){
+ const editId=document.getElementById("edit_form")
+ if(editId){
+  editId.addEventListener("click", async function(e){
+    e.preventDefault()
+    const post_id="<%= post._id %>"
+    await editForm(post_id)
+  })
+
+ }else{
+  console.log("this an error please try again")
+ }
+ })
+// let delete_btn= document.getElementById("delete_btn")
+// delete_btn.addEventListener("click",async function(post_id){
+//     const res= await fetch(`http://localhost:5000/editform/${post_id}`,{
+//             method:"DELETE",
+//         })
+//  if(res.OK){
+//     window.location.href="http://localhost:5000/profile"
+//  }else{
+//     console.log("error")
+//  }
+// })
+
+// async function delete(postid){
+//   const res= await fetch(`http://localhost:5000/editform/${post_id}`,{
+//             method:"DELETE",
+//         })
+//  if(res.OK){
+//     window.location.href="http://localhost:5000/profile"
+//  }else{
+//     console.log("error")
+//  }
+// }
+ 
+ function deletePost(postid) { 
+const deletePop = document.getElementById("deletePop")
+deletePop.style.display = "block"
+   let delete_btn = document.getElementById("deletePost")
+delete_btn.addEventListener("click",async function(){
+    const res= await fetch(`http://localhost:5000/admin/post/${postid}`,{
+            method:"DELETE",
+        })
+ if(res.ok){
+    window.location.href="http://localhost:5000/admin/user"
+ }else{
+    console.log("error")
+ }
+})
+}
+
+
+
+
+</script>
+</body>
+</html>

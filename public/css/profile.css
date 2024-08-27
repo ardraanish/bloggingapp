@@ -1,0 +1,93 @@
+.blog{
+display: flex;
+height: 85vh;
+flex-direction: column;
+gap: 30px;
+}
+.container{
+    background-color: antiquewhite;
+    padding: 15px;
+}
+body{
+    margin: 0;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+h1{
+    margin: 0;
+    font-size: 42;
+    color: purple;
+}
+.profile_page{
+    height: 96.5vh;
+    flex-direction: column;
+}
+.header{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+.profile_area{
+    flex: 1;
+}
+h2{
+    font-size: 36px;
+    margin: 0;
+    color: purple;
+}
+.blog_form{
+    position: absolute;
+    top: 350px;
+    left: 600px;
+    background-color: rgb(219, 147, 196);
+    display: none;
+    width: 600px;
+    padding: 20px;
+}
+.formBtn{
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+.li{
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    width: 98%;
+    background-color: rgb(241 188 225);
+    border-radius: 7px;
+}
+.edit_dlt{
+    display: flex;
+    gap: 15px;
+}
+button{
+    padding: 10px 30px;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    background-color: mediumorchid;
+}
+
+.add{
+    display: none;
+}
+.title{
+    font-size: 32px;
+    color: blueviolet;
+}
+.content{
+    font-size: 20px;
+    color: darkslateblue;
+}
+.deletePop{
+    position: absolute;
+    top: 350px;
+    left: 600px;
+    background-color: rgb(219, 147, 196);
+    display: none;
+    width: 600px;
+    padding: 20px;
+}

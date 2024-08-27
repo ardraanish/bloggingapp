@@ -1,0 +1,13 @@
+.content_box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: aqua;
+    max-width: 500px;
+}
+h1{
+    color: red;
+}
+.content_blog{
+    justify-content: center;
+}

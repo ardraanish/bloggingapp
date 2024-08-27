@@ -1,0 +1,75 @@
+.container{
+    background-color: antiquewhite;
+}
+body{
+    margin: 0;
+}
+.blog{
+
+    display: grid;
+    gap: 30px;
+    display: flex;
+height: 85vh;
+flex-direction: column;
+gap: 30px;
+}
+h1{
+    margin: 0;
+    font-size: 42;
+    color: purple;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+.home_page{
+    height: 96.5vh;
+    /* display: flex; */
+    flex-direction: column;
+    background-color: antiquewhite;
+    padding: 15px;
+   
+}
+.header{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    position: fixed;
+    position: static;
+}
+.profile_area{
+    flex: 1;
+    overflow: scroll;
+}
+.li{
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    width: 90%;
+    background-color: rgb(241 188 225);
+    border-radius: 7px;
+}
+.buttons{
+    /* color: white; */
+    display: flex;
+    gap: 15px;
+}
+.home_page{
+    height: 96.5vh;
+    display: flex;
+    flex-direction: column;
+}
+button{
+    padding: 10px 30px;
+    border-radius: 5px;
+    border: none;
+    background-color: mediumorchid;
+}
+.title{
+    font-size: 32px;
+    color: blueviolet;
+}
+.content{
+    font-size: 20px;
+    color: darkslateblue;
+}
